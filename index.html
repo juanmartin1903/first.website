@@ -17,17 +17,86 @@
             margin: 0;
             text-align: center;
         }
+
         .box {
             background: white;
             padding: 40px 50px;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
+
         h1 {
             margin-bottom: 10px;
         }
+
         p {
             font-size: 1.1rem;
+        }
+
+        /* --- Animación del obrero --- */
+        .worker {
+            margin-top: 30px;
+            width: 120px;
+            height: 120px;
+            position: relative;
+        }
+
+        .head {
+            width: 40px;
+            height: 40px;
+            background: #ffcc66;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+            left: 40px;
+        }
+
+        .helmet {
+            width: 46px;
+            height: 20px;
+            background: #ffb300;
+            border-radius: 5px 5px 0 0;
+            position: absolute;
+            top: -5px;
+            left: 37px;
+        }
+
+        .body {
+            width: 60px;
+            height: 60px;
+            background: #4a90e2;
+            border-radius: 10px;
+            position: absolute;
+            top: 40px;
+            left: 30px;
+        }
+
+        .arm {
+            width: 12px;
+            height: 45px;
+            background: #ffcc66;
+            border-radius: 6px;
+            position: absolute;
+            top: 45px;
+            left: 10px;
+            transform-origin: top center;
+            animation: hammer 1s infinite ease-in-out;
+        }
+
+        .hammer {
+            width: 30px;
+            height: 10px;
+            background: #555;
+            position: absolute;
+            top: 80px;
+            left: -5px;
+            border-radius: 3px;
+        }
+
+        @keyframes hammer {
+            0% { transform: rotate(0deg); }
+            50% { transform: rotate(-35deg); }
+            100% { transform: rotate(0deg); }
         }
     </style>
 </head>
@@ -35,6 +104,15 @@
     <div class="box">
         <h1>Este dominio está tomado</h1>
         <p>El sitio se encuentra actualmente en construcción.</p>
+
+        <div class="worker">
+            <div class="helmet"></div>
+            <div class="head"></div>
+            <div class="body"></div>
+            <div class="arm">
+                <div class="hammer"></div>
+            </div>
+        </div>
     </div>
 </body>
 </html>

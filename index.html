@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sitio en construcción</title>
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -33,66 +34,35 @@
             font-size: 1.1rem;
         }
 
-        /* Animaciones SVG */
-        .crane-hook {
-            animation: hookMove 2s ease-in-out infinite;
-        }
-
-        @keyframes hookMove {
-            0% { transform: translateY(0); }
-            50% { transform: translateY(15px); }
-            100% { transform: translateY(0); }
-        }
-
-        .worker-arm {
-            transform-origin: top center;
-            animation: armMove 1.2s ease-in-out infinite;
-        }
-
-        @keyframes armMove {
-            0% { transform: rotate(0deg); }
-            50% { transform: rotate(-25deg); }
-            100% { transform: rotate(0deg); }
+        .lottie {
+            width: 260px;
+            height: 260px;
+            margin-top: 20px;
         }
     </style>
 </head>
 <body>
+
     <div class="box">
         <h1>Este dominio está tomado</h1>
         <p>El sitio se encuentra actualmente en construcción.</p>
 
-        <!-- SVG animado -->
-        <svg width="260" height="200" viewBox="0 0 260 200">
-
-            <!-- Grúa -->
-            <rect x="20" y="80" width="20" height="100" fill="#999"/>
-            <rect x="10" y="180" width="40" height="10" fill="#666"/>
-            <rect x="20" y="60" width="120" height="10" fill="#999"/>
-
-            <!-- Gancho animado -->
-            <g class="crane-hook">
-                <rect x="130" y="70" width="4" height="40" fill="#555"/>
-                <rect x="122" y="110" width="20" height="20" fill="#ffb300" stroke="#333" stroke-width="2"/>
-            </g>
-
-            <!-- Obrero -->
-            <circle cx="200" cy="110" r="15" fill="#ffcc66"/>
-            <rect x="185" y="125" width="30" height="40" fill="#4a90e2" rx="5"/>
-
-            <!-- Casco -->
-            <rect x="185" y="95" width="30" height="10" fill="#ffb300" rx="3"/>
-
-            <!-- Brazo animado -->
-            <g class="worker-arm">
-                <rect x="175" y="125" width="10" height="35" fill="#ffcc66" rx="5"/>
-                <rect x="165" y="155" width="25" height="8" fill="#555" rx="3"/>
-            </g>
-
-            <!-- Cono de seguridad -->
-            <polygon points="60,170 80,170 70,140" fill="#ff6f00"/>
-            <rect x="60" y="170" width="20" height="5" fill="#333"/>
-
-        </svg>
+        <!-- Contenedor de la animación -->
+        <div class="lottie" id="anim"></div>
     </div>
+
+    <!-- Script de Lottie -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.10.2/lottie.min.js"></script>
+
+    <script>
+        lottie.loadAnimation({
+            container: document.getElementById('anim'),
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets10.lottiefiles.com/packages/lf20_tutvdkg0.json'
+        });
+    </script>
+
 </body>
 </html>

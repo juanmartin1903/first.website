@@ -33,69 +33,25 @@
             font-size: 1.1rem;
         }
 
-        /* --- Animación del obrero --- */
-        .worker {
-            margin-top: 30px;
-            width: 120px;
-            height: 120px;
-            position: relative;
+        /* Animaciones SVG */
+        .crane-hook {
+            animation: hookMove 2s ease-in-out infinite;
         }
 
-        .head {
-            width: 40px;
-            height: 40px;
-            background: #ffcc66;
-            border-radius: 50%;
-            position: absolute;
-            top: 0;
-            left: 40px;
+        @keyframes hookMove {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(15px); }
+            100% { transform: translateY(0); }
         }
 
-        .helmet {
-            width: 46px;
-            height: 20px;
-            background: #ffb300;
-            border-radius: 5px 5px 0 0;
-            position: absolute;
-            top: -5px;
-            left: 37px;
-        }
-
-        .body {
-            width: 60px;
-            height: 60px;
-            background: #4a90e2;
-            border-radius: 10px;
-            position: absolute;
-            top: 40px;
-            left: 30px;
-        }
-
-        .arm {
-            width: 12px;
-            height: 45px;
-            background: #ffcc66;
-            border-radius: 6px;
-            position: absolute;
-            top: 45px;
-            left: 10px;
+        .worker-arm {
             transform-origin: top center;
-            animation: hammer 1s infinite ease-in-out;
+            animation: armMove 1.2s ease-in-out infinite;
         }
 
-        .hammer {
-            width: 30px;
-            height: 10px;
-            background: #555;
-            position: absolute;
-            top: 80px;
-            left: -5px;
-            border-radius: 3px;
-        }
-
-        @keyframes hammer {
+        @keyframes armMove {
             0% { transform: rotate(0deg); }
-            50% { transform: rotate(-35deg); }
+            50% { transform: rotate(-25deg); }
             100% { transform: rotate(0deg); }
         }
     </style>
@@ -105,14 +61,38 @@
         <h1>Este dominio está tomado</h1>
         <p>El sitio se encuentra actualmente en construcción.</p>
 
-        <div class="worker">
-            <div class="helmet"></div>
-            <div class="head"></div>
-            <div class="body"></div>
-            <div class="arm">
-                <div class="hammer"></div>
-            </div>
-        </div>
+        <!-- SVG animado -->
+        <svg width="260" height="200" viewBox="0 0 260 200">
+
+            <!-- Grúa -->
+            <rect x="20" y="80" width="20" height="100" fill="#999"/>
+            <rect x="10" y="180" width="40" height="10" fill="#666"/>
+            <rect x="20" y="60" width="120" height="10" fill="#999"/>
+
+            <!-- Gancho animado -->
+            <g class="crane-hook">
+                <rect x="130" y="70" width="4" height="40" fill="#555"/>
+                <rect x="122" y="110" width="20" height="20" fill="#ffb300" stroke="#333" stroke-width="2"/>
+            </g>
+
+            <!-- Obrero -->
+            <circle cx="200" cy="110" r="15" fill="#ffcc66"/>
+            <rect x="185" y="125" width="30" height="40" fill="#4a90e2" rx="5"/>
+
+            <!-- Casco -->
+            <rect x="185" y="95" width="30" height="10" fill="#ffb300" rx="3"/>
+
+            <!-- Brazo animado -->
+            <g class="worker-arm">
+                <rect x="175" y="125" width="10" height="35" fill="#ffcc66" rx="5"/>
+                <rect x="165" y="155" width="25" height="8" fill="#555" rx="3"/>
+            </g>
+
+            <!-- Cono de seguridad -->
+            <polygon points="60,170 80,170 70,140" fill="#ff6f00"/>
+            <rect x="60" y="170" width="20" height="5" fill="#333"/>
+
+        </svg>
     </div>
 </body>
 </html>
